@@ -20,4 +20,8 @@ export class ActivitiesComponent implements OnInit {
   ngOnInit() {
   }
 
+  delete(item){
+    this.connection.deleteActivity(item);
+  }
+
 }
