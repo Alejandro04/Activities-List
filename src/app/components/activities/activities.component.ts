@@ -10,6 +10,10 @@ export class ActivitiesComponent implements OnInit {
 
   items: any;
 
+  updateItem:any = {
+    name: ''
+  }
+
   constructor(private connection: ConnectionService) {
     this.connection.ActivitiesList().subscribe(item=>{
       this.items = item
@@ -24,4 +28,11 @@ export class ActivitiesComponent implements OnInit {
     this.connection.deleteActivity(item);
   }
 
+  update(item){
+    this.updateItem = item;
+  }
+
+  addUpdatedItem(){
+    this.connection.updateItem(this.updateItem);
+  }
 }
